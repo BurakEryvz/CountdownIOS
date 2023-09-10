@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MCEmojiPicker
+import RealmSwift
 
 class AddCountdownViewController: UIViewController {
 
@@ -18,9 +20,14 @@ class AddCountdownViewController: UIViewController {
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    // Create realm
+    let realm = try! Realm()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.minimumDate = .now
         
         mainView.layer.cornerRadius = 20
         K.dropShadow(view: mainView, shadowColor: .lightGray)
@@ -37,6 +44,47 @@ class AddCountdownViewController: UIViewController {
     }
     
 
+    @IBAction func selectIconButtonPressed(_ sender: UIButton) {
+        let emojiVC = MCEmojiPickerViewController()
+        emojiVC.delegate = self
+        emojiVC.sourceView = sender
+        present(emojiVC, animated: true)
+    }
     
+    
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        if titleTextField.text != "", iconLabel.text != "" {
+            
+            let newCountdown = Countdown(title: titleTextField.text!, icon: iconLabel.text!, date: datePicker.date, daysLeft: K.getDaysLeft(selectedDate: datePicker.date))
+            saveData(data: newCountdown)
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
+            let alert = K.createAlert(title: "Please fill all fields", message: "")
+            present(alert, animated: true)
+        }
+    }
+    
+    
+    //MARK: - Save Realm Data method
+    func saveData(data: Object) {
+        do {
+            try realm.write({
+                realm.add(data)
+            })
+        } catch {
+            print("Error : Data isn't saving")
+        }
+    }
+    
+   
+    
+}
 
+extension AddCountdownViewController: MCEmojiPickerDelegate {
+    func didGetEmoji(emoji: String) {
+        iconLabel.text = emoji
+    }
+    
+    
 }

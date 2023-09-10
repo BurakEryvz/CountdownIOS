@@ -10,6 +10,7 @@ import UIKit
 class CountdownTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var stringLabel: UILabel!
     @IBOutlet weak var countdownBubbleView: UIView!
     @IBOutlet weak var iconBubbleView: UIView!
     @IBOutlet weak var iconLabel: UILabel!

@@ -44,7 +44,7 @@
                                 <color key="textColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShL-8L-XMQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShL-8L-XMQ">
                                 <rect key="frame" x="75" y="7.6666666666666696" width="83.333333333333314" height="26.333333333333329"/>
                                 <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="22"/>
                                 <color key="textColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -92,6 +92,7 @@
                 <outlet property="dateLeftCountLabel" destination="zlV-Mm-MLl" id="GDT-sT-x6r"/>
                 <outlet property="iconBubbleView" destination="a2w-rb-acA" id="zYk-wH-kHk"/>
                 <outlet property="iconLabel" destination="4z2-AD-nng" id="zTQ-gL-gfN"/>
+                <outlet property="stringLabel" destination="K1H-X9-2qx" id="jPo-vh-J2r"/>
                 <outlet property="titleLabel" destination="ShL-8L-XMQ" id="kCd-Ia-mwy"/>
             </connections>
             <point key="canvasLocation" x="183.20610687022901" y="15.140845070422536"/>

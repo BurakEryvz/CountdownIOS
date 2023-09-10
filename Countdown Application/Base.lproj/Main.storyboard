@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-We-SLM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-We-SLM">
                                 <rect key="frame" x="20" y="153" width="374" height="723"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -32,6 +32,9 @@
                                     <segment title="Last 3 days"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wh3-BB-ykY"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -49,6 +52,9 @@
                     <navigationItem key="navigationItem" title="countdown" id="8mV-yt-01P">
                         <barButtonItem key="leftBarButtonItem" image="clock.badge.checkmark" catalog="system" id="jei-BG-FEC">
                             <color key="tintColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="cLh-DT-zZz" kind="show" id="88J-pY-oIc"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="OoG-Am-3Aa">
                             <color key="tintColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -92,7 +98,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-Wm-Myu">
-                                                                <rect key="frame" x="10" y="57.5" width="271" height="34"/>
+                                                                <rect key="frame" x="10" y="44" width="271" height="52.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -100,8 +106,9 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="yxl-Wm-Myu" firstAttribute="leading" secondItem="KJP-tf-EDu" secondAttribute="leading" constant="10" id="Gom-8I-2B2"/>
+                                                            <constraint firstAttribute="bottom" secondItem="yxl-Wm-Myu" secondAttribute="bottom" constant="5" id="KMa-CO-Ia3"/>
+                                                            <constraint firstItem="yxl-Wm-Myu" firstAttribute="top" secondItem="90i-ru-Rdf" secondAttribute="bottom" constant="5" id="YpQ-or-ogC"/>
                                                             <constraint firstItem="90i-ru-Rdf" firstAttribute="top" secondItem="KJP-tf-EDu" secondAttribute="top" constant="10" id="fcH-Ld-Tpu"/>
-                                                            <constraint firstAttribute="bottom" secondItem="yxl-Wm-Myu" secondAttribute="bottom" constant="10" id="oWL-9c-qJU"/>
                                                             <constraint firstAttribute="trailing" secondItem="yxl-Wm-Myu" secondAttribute="trailing" constant="10" id="rnl-Uc-y7A"/>
                                                             <constraint firstItem="90i-ru-Rdf" firstAttribute="leading" secondItem="KJP-tf-EDu" secondAttribute="leading" constant="10" id="yzu-a5-H86"/>
                                                         </constraints>
@@ -138,6 +145,9 @@
                                                                     </backgroundConfiguration>
                                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="selectIconButtonPressed:" destination="NYX-hA-DZz" eventType="touchUpInside" id="tRe-BY-yEQ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,12 +206,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyt-Xt-9KD">
                                 <rect key="frame" x="41.5" y="650.5" width="331" height="34.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                <buttonConfiguration key="configuration" style="plain" title="Add">
                                     <backgroundConfiguration key="background" cornerRadius="10">
                                         <color key="backgroundColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="NYX-hA-DZz" eventType="touchUpInside" id="ET8-EP-5Kt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jfB-Dq-4nd"/>
@@ -231,7 +244,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLv-Ei-EMi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.8840579710147" y="-285.26785714285711"/>
+            <point key="canvasLocation" x="1683" y="-660"/>
+        </scene>
+        <!--Past Countdowns View Controller-->
+        <scene sceneID="rYl-fD-Gau">
+            <objects>
+                <viewController id="cLh-DT-zZz" customClass="PastCountdownsViewController" customModule="Countdown_Application" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rMA-cp-0uH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-Dt-oTq">
+                                <rect key="frame" x="20" y="224" width="374" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cLh-DT-zZz" id="lEK-AO-1rg"/>
+                                    <outlet property="delegate" destination="cLh-DT-zZz" id="Q5h-GX-Ezi"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past countdowns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-o1-SXD">
+                                <rect key="frame" x="20" y="176" width="268" height="43"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="36"/>
+                                <color key="textColor" red="0.32549020649999999" green="0.59215688710000003" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jss-2Q-Bcy"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DpV-Dt-oTq" firstAttribute="centerY" secondItem="rMA-cp-0uH" secondAttribute="centerY" id="2GM-Ci-pjc"/>
+                            <constraint firstItem="DpV-Dt-oTq" firstAttribute="centerX" secondItem="rMA-cp-0uH" secondAttribute="centerX" id="Ghe-cl-mqB"/>
+                            <constraint firstItem="Jss-2Q-Bcy" firstAttribute="trailing" secondItem="DpV-Dt-oTq" secondAttribute="trailing" constant="20" id="NEt-4q-Jvo"/>
+                            <constraint firstItem="DpV-Dt-oTq" firstAttribute="top" secondItem="GWp-o1-SXD" secondAttribute="bottom" constant="5" id="Ssv-bY-qtY"/>
+                            <constraint firstItem="GWp-o1-SXD" firstAttribute="leading" secondItem="DpV-Dt-oTq" secondAttribute="leading" id="gfb-cZ-0Gq"/>
+                            <constraint firstItem="DpV-Dt-oTq" firstAttribute="height" secondItem="rMA-cp-0uH" secondAttribute="height" multiplier="0.5" id="i7A-77-NjE"/>
+                            <constraint firstItem="DpV-Dt-oTq" firstAttribute="leading" secondItem="Jss-2Q-Bcy" secondAttribute="leading" constant="20" id="nxn-l9-Wq7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ytJ-y5-KwG"/>
+                    <connections>
+                        <outlet property="pastCountdownsTableView" destination="DpV-Dt-oTq" id="5cn-0f-84M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAq-YY-Snj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AaM-2N-rcq">

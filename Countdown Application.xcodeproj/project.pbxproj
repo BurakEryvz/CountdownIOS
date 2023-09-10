@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		951CFA302AAC928C00E6468C /* AddCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CFA2F2AAC928C00E6468C /* AddCountdownViewController.swift */; };
 		951CFA552AACA88C00E6468C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CFA542AACA88C00E6468C /* Constants.swift */; };
+		951CFA582AACAD1200E6468C /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 951CFA572AACAD1200E6468C /* MCEmojiPicker */; };
+		951CFA5B2AADCEEA00E6468C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 951CFA5A2AADCEEA00E6468C /* Realm */; };
+		951CFA5D2AADCEEA00E6468C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 951CFA5C2AADCEEA00E6468C /* RealmSwift */; };
+		951CFA602AADCFAB00E6468C /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CFA5F2AADCFAB00E6468C /* Countdown.swift */; };
 		953F48272AAA338D004234C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F48262AAA338D004234C9 /* AppDelegate.swift */; };
 		953F48292AAA338D004234C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F48282AAA338D004234C9 /* SceneDelegate.swift */; };
 		953F482B2AAA338D004234C9 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F482A2AAA338D004234C9 /* CountdownViewController.swift */; };
@@ -17,11 +21,13 @@
 		953F48332AAA338F004234C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953F48312AAA338F004234C9 /* LaunchScreen.storyboard */; };
 		953F483C2AAA8923004234C9 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F483A2AAA8923004234C9 /* CountdownTableViewCell.swift */; };
 		953F483D2AAA8923004234C9 /* CountdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953F483B2AAA8923004234C9 /* CountdownTableViewCell.xib */; };
+		95D2FD5D2AADFCB400F38E05 /* PastCountdownsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D2FD5C2AADFCB400F38E05 /* PastCountdownsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		951CFA2F2AAC928C00E6468C /* AddCountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCountdownViewController.swift; sourceTree = "<group>"; };
 		951CFA542AACA88C00E6468C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		951CFA5F2AADCFAB00E6468C /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		953F48232AAA338D004234C9 /* Countdown Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Countdown Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		953F48262AAA338D004234C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		953F48282AAA338D004234C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +38,7 @@
 		953F48342AAA338F004234C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953F483A2AAA8923004234C9 /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
 		953F483B2AAA8923004234C9 /* CountdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownTableViewCell.xib; sourceTree = "<group>"; };
+		95D2FD5C2AADFCB400F38E05 /* PastCountdownsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastCountdownsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951CFA5D2AADCEEA00E6468C /* RealmSwift in Frameworks */,
+				951CFA5B2AADCEEA00E6468C /* Realm in Frameworks */,
+				951CFA582AACAD1200E6468C /* MCEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,8 +60,26 @@
 			children = (
 				953F482A2AAA338D004234C9 /* CountdownViewController.swift */,
 				951CFA2F2AAC928C00E6468C /* AddCountdownViewController.swift */,
+				95D2FD5C2AADFCB400F38E05 /* PastCountdownsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		951CFA5E2AADCF9700E6468C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				951CFA5F2AADCFAB00E6468C /* Countdown.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		951CFA612AADD11100E6468C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				953F48262AAA338D004234C9 /* AppDelegate.swift */,
+				953F48282AAA338D004234C9 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		953F481A2AAA338D004234C9 = {
@@ -73,14 +101,14 @@
 		953F48252AAA338D004234C9 /* Countdown Application */ = {
 			isa = PBXGroup;
 			children = (
-				953F48262AAA338D004234C9 /* AppDelegate.swift */,
-				953F48282AAA338D004234C9 /* SceneDelegate.swift */,
 				951CFA312AAC929400E6468C /* Controllers */,
+				951CFA5E2AADCF9700E6468C /* Model */,
+				951CFA612AADD11100E6468C /* Delegates */,
+				953F483E2AAA8927004234C9 /* Cell */,
 				953F482C2AAA338D004234C9 /* Main.storyboard */,
 				953F482F2AAA338F004234C9 /* Assets.xcassets */,
 				953F48312AAA338F004234C9 /* LaunchScreen.storyboard */,
 				953F48342AAA338F004234C9 /* Info.plist */,
-				953F483E2AAA8927004234C9 /* Cell */,
 				951CFA542AACA88C00E6468C /* Constants.swift */,
 			);
 			path = "Countdown Application";
@@ -111,6 +139,11 @@
 			dependencies = (
 			);
 			name = "Countdown Application";
+			packageProductDependencies = (
+				951CFA572AACAD1200E6468C /* MCEmojiPicker */,
+				951CFA5A2AADCEEA00E6468C /* Realm */,
+				951CFA5C2AADCEEA00E6468C /* RealmSwift */,
+			);
 			productName = "Countdown Application";
 			productReference = 953F48232AAA338D004234C9 /* Countdown Application.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +172,10 @@
 				Base,
 			);
 			mainGroup = 953F481A2AAA338D004234C9;
+			packageReferences = (
+				951CFA562AACAD1200E6468C /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
+				951CFA592AADCEEA00E6468C /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 953F48242AAA338D004234C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -167,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D2FD5D2AADFCB400F38E05 /* PastCountdownsViewController.swift in Sources */,
 				953F482B2AAA338D004234C9 /* CountdownViewController.swift in Sources */,
 				953F48272AAA338D004234C9 /* AppDelegate.swift in Sources */,
 				953F48292AAA338D004234C9 /* SceneDelegate.swift in Sources */,
 				953F483C2AAA8923004234C9 /* CountdownTableViewCell.swift in Sources */,
+				951CFA602AADCFAB00E6468C /* Countdown.swift in Sources */,
 				951CFA302AAC928C00E6468C /* AddCountdownViewController.swift in Sources */,
 				951CFA552AACA88C00E6468C /* Constants.swift in Sources */,
 			);
@@ -390,6 +429,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		951CFA562AACAD1200E6468C /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		951CFA592AADCEEA00E6468C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.42.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		951CFA572AACAD1200E6468C /* MCEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951CFA562AACAD1200E6468C /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
+			productName = MCEmojiPicker;
+		};
+		951CFA5A2AADCEEA00E6468C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951CFA592AADCEEA00E6468C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		951CFA5C2AADCEEA00E6468C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951CFA592AADCEEA00E6468C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 953F481B2AAA338D004234C9 /* Project object */;
 }
