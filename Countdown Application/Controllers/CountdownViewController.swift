@@ -25,6 +25,8 @@ class CountdownViewController: UIViewController {
         // Find realm file
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        
+        
         countdownsTableView.backgroundColor = UIColor.white
         countdownsTableView.layer.cornerRadius = 20
         K.dropShadow(view: countdownsTableView, shadowColor: .darkGray)
@@ -86,6 +88,7 @@ class CountdownViewController: UIViewController {
     
     
     
+    
 
 }
 
@@ -142,4 +145,3 @@ extension CountdownViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-

@@ -9,7 +9,7 @@ import UIKit
 import MCEmojiPicker
 import RealmSwift
 
-class AddCountdownViewController: UIViewController {
+class AddCountdownViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var mainView: UIView!
@@ -26,6 +26,7 @@ class AddCountdownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboard()
         
         datePicker.minimumDate = .now
         
@@ -65,6 +66,8 @@ class AddCountdownViewController: UIViewController {
         }
     }
     
+   
+    
     
     //MARK: - Save Realm Data method
     func saveData(data: Object) {
@@ -87,4 +90,16 @@ extension AddCountdownViewController: MCEmojiPickerDelegate {
     }
     
     
+}
+
+extension UIViewController {
+func dismissKeyboard() {
+       let tap: UITapGestureRecognizer = UITapGestureRecognizer( target:     self, action:    #selector(UIViewController.dismissKeyboardTouchOutside))
+       tap.cancelsTouchesInView = false
+       view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboardTouchOutside() {
+       view.endEditing(true)
+    }
 }
